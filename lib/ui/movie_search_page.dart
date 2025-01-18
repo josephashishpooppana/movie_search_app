@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/movie_bloc.dart';
-import '../bloc/movie_event.dart';
-import '../bloc/movie_state.dart';
-import 'widgets/movie_item.dart';
+import 'package:movie_search_app/bloc/movie_bloc.dart';
+import 'package:movie_search_app/bloc/movie_event.dart';
+import 'package:movie_search_app/bloc/movie_state.dart';
+import 'package:movie_search_app/ui/widgets/movie_item.dart';
 
 class MovieSearchPage extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();

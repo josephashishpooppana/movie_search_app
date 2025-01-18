@@ -1,7 +1,7 @@
 // lib/ui/movie_details_page.dart
 
 import 'package:flutter/material.dart';
-import '../data/models/movie_model.dart';
+import 'package:movie_search_app/data/models/movie_model.dart';
 
 class MovieDetailsPage extends StatelessWidget {
   final Movie movie;

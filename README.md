@@ -62,3 +62,4 @@ This Flutter application allows you to search for movies using the TMDB API and 
     │   │   │   ├── movie_details_page.dart # UI for displaying movie details.
     │   │   │   └── movie_search_page.dart  # Main UI for searching and listing movies.
     │   └── main.dart                       # Entry point of the application.
+    ├── pubspec.yaml

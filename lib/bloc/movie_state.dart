@@ -1,6 +1,6 @@
 // lib/bloc/movie_state.dart
 
-import '../data/models/movie_model.dart';
+import 'package:movie_search_app/data/models/movie_model.dart';
 
 abstract class MovieState {}
 

@@ -2,7 +2,7 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../models/movie_model.dart';
+import 'package:movie_search_app/data/models/movie_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class MovieRepository {

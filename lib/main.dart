@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'bloc/movie_bloc.dart';
-import 'data/repositories/movie_repository.dart';
-import 'ui/movie_search_page.dart';
+import 'package:movie_search_app/bloc/movie_bloc.dart';
+import 'package:movie_search_app/data/repositories/movie_repository.dart';
+import 'package:movie_search_app/ui/movie_search_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {

@@ -12,8 +12,12 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
     on<SearchMovie>((event, emit) async {
       emit(MovieLoading());
       try {
-        final movies = await movieRepository.searchMovies(event.query, 1); // Page 1
-        emit(MovieLoaded(movies: movies, currentPage: 1, hasMore: movies.isNotEmpty));
+        final movies = await movieRepository.searchMovies(event.query, 1);
+        if (movies.isEmpty) {
+          emit(MovieEmpty());
+        } else {
+          emit(MovieLoaded(movies: movies, currentPage: 1, hasMore: movies.isNotEmpty));
+        }
       } catch (e) {
         emit(MovieError('Failed to fetch movies'));
       }

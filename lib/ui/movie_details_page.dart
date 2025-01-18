@@ -16,7 +16,7 @@ class MovieDetailsPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // Pop to go back to the previous page
+            Navigator.pop(context);
           },
         ),
       ),

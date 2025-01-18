@@ -42,3 +42,23 @@ This Flutter application allows you to search for movies using the TMDB API and 
       ```bash
       flutter run -d <YOUR_DEVICE>
       ```
+
+**Folder Structure**
+
+    MOVIE_SEARCH_APP/
+    ├── lib/
+    │   ├── bloc/ 
+    │   │   ├── movie_bloc.dart             # Contains the BLoC for managing movie search state.
+    │   │   ├── movie_event.dart            # Defines events that trigger state changes in the BLoC.
+    │   │   └── movie_state.dart            # Defines states that represent the UI state.
+    │   ├── data/
+    │   │   ├── models/
+    │   │   │   └── movie_model.dart        # Represents the structure of a movie object.
+    │   │   └── repositories/
+    │   │       └── movie_repository.dart   # Handles data fetching and manipulation.
+    │   ├── ui/ 
+    │   │   ├── widgets/
+    │   │   │   ├── movie_item.dart         # UI widget for displaying individual movie items.
+    │   │   │   ├── movie_details_page.dart # UI for displaying movie details.
+    │   │   │   └── movie_search_page.dart  # Main UI for searching and listing movies.
+    │   └── main.dart                       # Entry point of the application.

@@ -32,7 +32,7 @@ class MovieSearchPage extends StatelessWidget {
               ),
               onSubmitted: (query) {
                 BlocProvider.of<MovieBloc>(context)
-                    .add(SearchMovie(query)); // Trigger search on "Enter"
+                    .add(SearchMovie(query));
               },
             ),
           ),
@@ -61,6 +61,8 @@ class MovieSearchPage extends StatelessWidget {
                   );
                 } else if (state is MovieError) {
                   return Center(child: Text(state.message));
+                } else if (state is MovieEmpty) {
+                  return Center(child: Text('No Movies Found'));
                 }
                 return Center(child: Text('Search for a movie'));
               },

@@ -21,3 +21,5 @@ class MovieError extends MovieState {
 
   MovieError(this.message);
 }
+
+class MovieEmpty extends MovieState {}

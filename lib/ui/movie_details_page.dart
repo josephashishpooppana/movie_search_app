@@ -1,18 +1,11 @@
 // lib/ui/movie_details_page.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/movie_bloc.dart';
-import '../bloc/movie_event.dart';
-import '../bloc/movie_state.dart';
-import 'widgets/movie_item.dart';
-import '../data/repositories/movie_repository.dart';
 import '../data/models/movie_model.dart';
 
 class MovieDetailsPage extends StatelessWidget {
   final Movie movie;
 
-  // Constructor to receive the selected movie
   MovieDetailsPage({required this.movie});
 
   @override
@@ -20,6 +13,12 @@ class MovieDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(movie.title),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Pop to go back to the previous page
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

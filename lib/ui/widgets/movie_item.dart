@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../../data/models/movie_model.dart';
-
+import '../movie_details_page.dart';
 
 class MovieItem extends StatelessWidget {
   final Movie movie;
@@ -11,26 +11,37 @@ class MovieItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: movie.posterPath != null && movie.posterPath!.isNotEmpty
-          ? Image.network(
-              'https://image.tmdb.org/t/p/w92${movie.posterPath}',
-              width: 92,
-              height: 138, // Maintaining aspect ratio of the poster
-              errorBuilder: (context, error, stackTrace) {
-                return _buildImageNotFoundPlaceholder();
-              },
-            )
-          : _buildImageNotFoundPlaceholder(),
-      title: Text(movie.title),
-      subtitle: Text('Release Date: ${movie.releaseDate ?? 'Unknown'}'),
+    return GestureDetector(
+      onTap: () {
+        // Navigate to movie details page
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MovieDetailsPage(movie: movie),
+          ),
+        );
+      },
+      child: ListTile(
+        leading: movie.posterPath != null && movie.posterPath!.isNotEmpty
+            ? Image.network(
+                'https://image.tmdb.org/t/p/w92${movie.posterPath}',
+                width: 92,
+                height: 138,
+                errorBuilder: (context, error, stackTrace) {
+                  return _buildImageNotFoundPlaceholder();
+                },
+              )
+            : _buildImageNotFoundPlaceholder(),
+        title: Text(movie.title),
+        subtitle: Text('Release Date: ${movie.releaseDate ?? 'Unknown'}'),
+      ),
     );
   }
 
   Widget _buildImageNotFoundPlaceholder() {
     return Container(
       width: 92,
-      height: 138, // Maintaining aspect ratio of the poster
+      height: 138,
       color: Colors.grey[300],
       child: Center(
         child: Text(

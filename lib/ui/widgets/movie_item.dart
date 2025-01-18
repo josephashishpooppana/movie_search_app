@@ -1,3 +1,5 @@
+// lib/ui/widgets/movie_item.dart
+
 import 'package:flutter/material.dart';
 import '../../data/models/movie_model.dart';
 

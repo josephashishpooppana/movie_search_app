@@ -1,3 +1,4 @@
+// lib/data/models/movie_model.dart
 class Movie {
   final String title;
   final String? posterPath;

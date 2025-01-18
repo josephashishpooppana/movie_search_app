@@ -1,3 +1,5 @@
+// lib/ui/movie_search_page.dart
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/movie_bloc.dart';
@@ -28,6 +30,10 @@ class MovieSearchPage extends StatelessWidget {
                   },
                 ),
               ),
+              onSubmitted: (query) {
+                BlocProvider.of<MovieBloc>(context)
+                    .add(SearchMovie(query)); // Trigger search on "Enter"
+              },
             ),
           ),
           Expanded(
@@ -36,11 +42,22 @@ class MovieSearchPage extends StatelessWidget {
                 if (state is MovieLoading) {
                   return Center(child: CircularProgressIndicator());
                 } else if (state is MovieLoaded) {
-                  return ListView.builder(
-                    itemCount: state.movies.length,
-                    itemBuilder: (context, index) {
-                      return MovieItem(movie: state.movies[index]);
+                  return NotificationListener<ScrollNotification>(
+                    onNotification: (notification) {
+                      if (notification is ScrollEndNotification &&
+                          notification.metrics.extentAfter == 0) {
+                        if (state.hasMore) {
+                          BlocProvider.of<MovieBloc>(context).add(LoadMoreMovies(_controller.text));
+                        }
+                      }
+                      return false;
                     },
+                    child: ListView.builder(
+                      itemCount: state.movies.length,
+                      itemBuilder: (context, index) {
+                        return MovieItem(movie: state.movies[index]);
+                      },
+                    ),
                   );
                 } else if (state is MovieError) {
                   return Center(child: Text(state.message));
